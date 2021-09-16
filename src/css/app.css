@@ -10,6 +10,9 @@
 [data-route="axes"] {
   padding: 5px;
   font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 [data-route="axes"] > * {
   margin-bottom: 5px;
@@ -72,9 +75,24 @@
 [data-route="axes"] .rotate--90deg:before {
   transform: rotate(-90deg);
 }
+[data-route="axes"] .control-pad {
+  flex-grow: 1;
+}
+[data-route="axes"] .control-pad .container-fluid:before,
+[data-route="axes"] .control-pad .container-fluid:after {
+  display: none;
+  content: none;
+}
+[data-route="axes"] .control-pad .container-fluid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  height: 100%;
+  align-items: stretch;
+}
 [data-route="axes"] .control-pad .row [class^="col-"],
 [data-route="axes"] .control-pad .row [class*=" col-"] {
   padding-right: 5px;
+  height: 100%;
 }
 [data-route="axes"] .control-pad .row [class^="col-"]:last-child,
 [data-route="axes"] .control-pad .row [class*=" col-"]:last-child {
@@ -86,8 +104,12 @@
 [data-route="axes"] .control-pad .row:last-child {
   padding-bottom: 0;
 }
+[data-route="axes"] .control-pad .form-control {
+  height: 100%;
+}
 [data-route="axes"] .control-pad .btn {
   width: 100%;
+  height: 100%;
   padding-left: 0;
   padding-right: 0;
 }
